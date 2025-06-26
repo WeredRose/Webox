@@ -1,116 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVBOX大人接口</title>
-    <meta name="description" content="我们专业制作TVbox福利接口，对接各大资源站，自动更新大人看的TVBOX接口">
-    <meta name="keywords" content="TVBOX福利接口,TVBOX大人接口,TVBOX大人看的,TVBOX大人福利">
-    <meta name="author" content="TVBOX福利接口">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f9fa;
+    <html lang="zh-CN">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>URL重复生成器</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#3B82F6',
+                secondary: '#10B981',
+                accent: '#6366F1',
+                neutral: '#F3F4F6',
+                'neutral-dark': '#4B5563'
+              },
+              fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+              },
+            }
+          }
         }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+          .transition-custom {
+            transition: all 0.3s ease;
+          }
+          .btn-hover {
+            @apply hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+          }
         }
-        h2 {
-            color: #5c4fff;
-        }
-        .link-box {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px 0;
-            background: #fff;
-        }
-        .copy-btn {
-            background: #5c4fff;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .copy-btn:active {
-            background: #4333cc;
-        }
-        /* 公告框样式 */
-        .notice-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fffbe6;
-            border: 1px solid #ffd700;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            font-size: 14px;
-            color: #856404;
-            text-align: left;
-        }
-        /* 按钮样式 */
-        .button-group {
-            margin-top: 15px;
-            display: flex;
-            justify-content: space-around;
-        }
-        .action-btn {
-            background: #007bff;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 14px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .action-btn:hover {
-            background: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>TVBOX福利接口</h2>
-        <div class="link-box">
-            <span>多仓接口【放在数据源】</span>
-            <button class="copy-btn" onClick="copyText(this, 'https://www.jsonav.xyz/sex.bmp')">复制</button>
+      </style>
+    </head>
+    <body class="bg-gray-50 min-h-screen font-inter">
+      <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition-all duration-300">
+          <div class="bg-gradient-to-r from-primary to-accent p-6 text-white">
+            <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold flex items-center">
+              <i class="fa fa-link mr-3"></i>
+              URL重复生成器
+            </h1>
+            <p class="mt-2 opacity-90">轻松生成指定数量的重复URL</p>
+          </div>
+          
+          <div class="p-6">
+            <div class="mb-6">
+              <label for="urlInput" class="block text-sm font-medium text-gray-700 mb-1">基础网址</label>
+              <textarea 
+                id="urlInput" 
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                placeholder="例如: https://example.com"
+              ></textarea>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div>
+                <label for="repeatCount" class="block text-sm font-medium text-gray-700 mb-1">重复次数</label>
+                <input 
+                  type="number" 
+                  id="repeatCount" 
+                  value="1500" 
+                  min="1" 
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                >
+              </div>
+              
+              <div class="md:col-span-2 flex flex-col justify-end">
+                <div class="flex flex-wrap gap-3">
+                  <button 
+                    onclick="generateUrls()" 
+                    class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg flex items-center btn-hover"
+                  >
+                    <i class="fa fa-magic mr-2"></i> 生成
+                  </button>
+                  <button 
+                    onclick="copyResult()" 
+                    class="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg flex items-center btn-hover"
+                  >
+                    <i class="fa fa-copy mr-2"></i> 复制结果
+                  </button>
+                  <button 
+                    onclick="clearAll()" 
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center btn-hover"
+                  >
+                    <i class="fa fa-eraser mr-2"></i> 清空
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="result">
+              <label class="block text-sm font-medium text-gray-700 mb-1">生成结果</label>
+              <div class="relative">
+                <textarea 
+                  id="resultOutput" 
+                  readonly 
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all min-h-[200px]"
+                ></textarea>
+                <div id="copyStatus" class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs opacity-0 transition-opacity duration-500">
+                  已复制!
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gray-50 p-4 text-center text-gray-500 text-sm">
+            <p>© 2025 URL重复生成器 | 快速创建多行相同URL</p>
+          </div>
         </div>
-        <div class="link-box">
-            <span>直播接口【放在直播框】</span>
-            <button class="copy-btn" onClick="copyText(this, 'https://www.jsonav.xyz/v.txt')">复制</button>
-        </div>
-        <!-- 公告框 -->
-        <div class="notice-box">
-            📢 <strong>公告：</strong> TVBOX接口每日自动更新，如无法使用请尝试更换网络或联系站长！
-        </div>
-        <!-- 按钮组 -->
-        </div>
-
-    <script>
-        function copyText(button, text) {
-            navigator.clipboard.writeText(text).then(() => {
-                button.style.backgroundColor = "#0E9747"; // 浅绿色
-                button.textContent = "已复制";
-                setTimeout(() => {
-                    button.style.backgroundColor = "#5c4fff";
-                    button.textContent = "复制";
-                }, 2000);
-            });
+      </div>
+      
+      <script>
+        function generateUrls() {
+          const baseUrl = document.getElementById('urlInput').value.trim();
+          const repeatCount = parseInt(document.getElementById('repeatCount').value) || 1;
+          
+          if (!baseUrl) {
+            showNotification('请输入基础网址', 'error');
+            return;
+          }
+          
+          let result = '';
+          for (let i = 0; i < repeatCount; i++) {
+            result += baseUrl + '\n';
+          }
+          
+          document.getElementById('resultOutput').value = result.trim();
+          showNotification(`成功生成 ${repeatCount} 个URL`, 'success');
         }
-    </script>
-</body>
-</html>
-<script> var _mtj = _mtj || []; (function () { var mtj = document.createElement("script"); mtj.src = "https://node31.aizhantj.com:21233/tjjs/?k=wiwpou4653u"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(mtj, s); })(); </script>
+        
+        function copyResult() {
+          const resultTextarea = document.getElementById('resultOutput');
+          resultTextarea.select();
+          document.execCommand('copy');
+          
+          // 显示复制成功提示
+          const copyStatus = document.getElementById('copyStatus');
+          copyStatus.textContent = '已复制!';
+          copyStatus.classList.remove('opacity-0');
+          copyStatus.classList.add('opacity-100');
+          
+          setTimeout(() => {
+            copyStatus.classList.remove('opacity-100');
+            copyStatus.classList.add('opacity-0');
+          }, 2000);
+        }
+        
+        function clearAll() {
+          document.getElementById('urlInput').value = '';
+          document.getElementById('resultOutput').value = '';
+          document.getElementById('repeatCount').value = 1500;
+          showNotification('已清空所有输入和输出', 'info');
+        }
+        
+        function showNotification(message, type = 'info') {
+          // 创建通知元素
+          const notification = document.createElement('div');
+          notification.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out z-50 translate-y-10 opacity-0`;
+          
+          // 根据类型设置样式
+          if (type === 'success') {
+            notification.classList.add('bg-green-500', 'text-white');
+          } else if (type === 'error') {
+            notification.classList.add('bg-red-500', 'text-white');
+          } else {
+            notification.classList.add('bg-primary', 'text-white');
+          }
+          
+          notification.innerHTML = `
+            <div class="flex items-center">
+              ${type === 'success' ? '<i class="fa fa-check-circle mr-2"></i>' : 
+                type === 'error' ? '<i class="fa fa-exclamation-circle mr-2"></i>' : 
+                '<i class="fa fa-info-circle mr-2"></i>'}
+              <span>${message}</span>
+            </div>
+          `;
+          
+          document.body.appendChild(notification);
+          
+          // 显示通知
+          setTimeout(() => {
+            notification.classList.remove('translate-y-10', 'opacity-0');
+          }, 10);
+          
+          // 3秒后隐藏通知
+          setTimeout(() => {
+            notification.classList.add('translate-y-10', 'opacity-0');
+            setTimeout(() => {
+              document.body.removeChild(notification);
+            }, 300);
+          }, 3000);
+        }
+      </script>
+    </body>
+    </html>
+  
