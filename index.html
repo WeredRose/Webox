@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN推荐 - 安全上网指南</title>
+    <meta name="keywords" content="VPN推荐, 虚拟专用网络, 最佳VPN服务, VPN评测, 隐私保护, 网络安全, 加密连接, 流媒体解锁, 绕过限制">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#FF7D00',
+                        success: '#00B42A',
+                        danger: '#F53F3F',
+                        dark: '#1D2129',
+                        'gray-light': '#F2F3F5',
+                        'gray-medium': '#86909C',
+                        'gray-dark': '#4E5969'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+                        'card-hover': '0 20px 40px -5px rgba(0, 0, 0, 0.2)',
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-gradient {
+                background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-light text-dark antialiased">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa fa-shield text-primary text-2xl"></i>
+                <span class="text-xl font-bold">VPN<span class="text-primary">推荐</span></span>
+            </a>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative bg-gradient-to-br from-primary/90 to-primary py-16 md:py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-white animate-float"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-white animate-float" style="animation-delay: 2s"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-white animate-float" style="animation-delay: 4s"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight text-shadow mb-6">
+                    选择最佳VPN服务，保障你的网络安全
+                </h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8">
+                    我们测试并推荐值得信赖的VPN提供商，帮助你安全浏览、解锁内容并保护隐私
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#recommendations" class="px-8 py-3 bg-white text-primary font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                        查看推荐
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-light to-transparent"></div>
+    </section>
+
+    <!-- 推荐VPN卡片区域 -->
+    <section id="recommendations" class="py-16 bg-gray-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">VPN推荐</h2>
+                <p class="text-gray-dark max-w-2xl mx-auto">经过严格测试和评估，我们挑选出以下优质VPN服务，满足不同需求和预算</p>
+            </div>
+            
+            <!-- VPN卡片网格 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 卡片1 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-success text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            最佳性价比
+                        </div>
+                        <img src="https://picsum.photos/seed/surfshark/600/300" alt="Surfshark" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/surfsharklogo/100/100" alt="Surfshark Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">Surfshark</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">4.2/5 (986 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">无限设备同时连接的高性价比VPN，提供出色的流媒体解锁能力和隐私保护。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>65+国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>无限设备连接</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>广告拦截</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>30天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$12.95/月</span>
+                                <div class="text-xl font-bold text-dark">$2.30/月</div>
+                                <span class="text-xs text-gray-medium">（24个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片2 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            隐私保护首选
+                        </div>
+                        <img src="https://picsum.photos/seed/protonvpn/600/300" alt="ProtonVPN" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/protonvpnlogo/100/100" alt="ProtonVPN Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">ProtonVPN</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">4.5/5 (752 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">由瑞士隐私法保护的VPN，采用零日志政策和军用级加密技术，保障你的在线隐私。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>65+国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>支持3台设备</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>Tor over VPN</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>30天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$11.99/月</span>
+                                <div class="text-xl font-bold text-dark">$4.99/月</div>
+                                <span class="text-xs text-gray-medium">（12个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片3 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            游戏加速
+                        </div>
+                        <img src="https://picsum.photos/seed/nordvpn/600/300" alt="NordVPN" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/nordvpnlogo/100/100" alt="NordVPN Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">NordVPN</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">4.1/5 (1,120 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">拥有专门的游戏服务器网络，大幅降低延迟，提升在线游戏体验。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>60+国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>支持6台设备</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>双重VPN加密</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>30天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$11.99/月</span>
+                                <div class="text-xl font-bold text-dark">$3.49/月</div>
+                                <span class="text-xs text-gray-medium">（24个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片4 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            流媒体解锁
+                        </div>
+                        <img src="https://picsum.photos/seed/cyberghost/600/300" alt="CyberGhost" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/cyberghostlogo/100/100" alt="CyberGhost Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">CyberGhost</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">4.0/5 (890 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">专为流媒体优化的VPN，拥有大量专用服务器，轻松解锁全球流媒体内容。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>90+国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>支持7台设备</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>流媒体专用服务器</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>45天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$12.99/月</span>
+                                <div class="text-xl font-bold text-dark">$2.29/月</div>
+                                <span class="text-xs text-gray-medium">（36个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片5 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-teal-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            性价比之选
+                        </div>
+                        <img src="https://picsum.photos/seed/hotspotshield/600/300" alt="Hotspot Shield" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/hotspotshieldlogo/100/100" alt="Hotspot Shield Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">Hotspot Shield</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">3.9/5 (760 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">快速且易于使用的VPN，提供免费版本和高级版本，适合日常安全浏览。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>80+国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>支持5台设备</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>免费版本可用</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>30天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$11.99/月</span>
+                                <div class="text-xl font-bold text-dark">$2.99/月</div>
+                                <span class="text-xs text-gray-medium">（12个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片6 -->
+                <div class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                            高级安全
+                        </div>
+                        <img src="https://picsum.photos/seed/privatovpn/600/300" alt="PrivateVPN" class="w-full h-48 object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <img src="https://picsum.photos/seed/privatovpnlogo/100/100" alt="PrivateVPN Logo" class="w-12 h-12 rounded-lg object-contain shadow-sm">
+                            <div>
+                                <h3 class="text-xl font-bold text-dark">PrivateVPN</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-dark">3.8/5 (650 评价)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-dark mb-4">专注于隐私保护的高级VPN，提供多种加密协议和严格的零日志政策。</p>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>63个国家</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>支持6台设备</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>多种加密协议</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa fa-check text-success mt-1"></i>
+                                <span>30天退款保证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-medium line-through">$9.99/月</span>
+                                <div class="text-xl font-bold text-dark">$2.75/月</div>
+                                <span class="text-xs text-gray-medium">（24个月套餐）</span>
+                            </div>
+                            <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                查看详情
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用指南区域 -->
+    <section id="guides" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">VPN使用指南</h2>
+                <p class="text-gray-dark max-w-2xl mx-auto">了解如何选择和使用VPN，保护你的在线隐私和安全</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 指南1 -->
+                <div class="bg-gray-light rounded-xl p-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-shield text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">为什么需要VPN</h3>
+                    <p class="text-gray-dark">VPN可以加密你的网络连接，隐藏你的IP地址，保护你的在线隐私，防止网络监控和数据泄露。</p>
+                </div>
+                
+                <!-- 指南2 -->
+                <div class="bg-gray-light rounded-xl p-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-lock text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">如何选择VPN</h3>
+                    <p class="text-gray-dark">选择VPN时应考虑服务器位置、速度、安全性、价格、设备支持数量以及是否有严格的零日志政策。</p>
+                </div>
+                
+                <!-- 指南3 -->
+                <div class="bg-gray-light rounded-xl p-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-download text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">如何安装VPN</h3>
+                    <p class="text-gray-dark">大多数VPN服务提供简单的安装过程，只需从官方网站下载应用程序，按照向导完成安装并登录账号即可。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-shield text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">VPN<span class="text-primary">推荐</span></span>
+                    </div>
+                    <p class="text-gray-medium text-sm">我们提供专业、公正的VPN评测和推荐，帮助你找到最适合的VPN服务。</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">VPN服务</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">最佳VPN</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">流媒体VPN</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">游戏VPN</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">VPN教程</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">VPN安全指南</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">VPN法律问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">公司</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">关于我们</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="text-gray-medium hover:text-white text-sm transition-colors">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-medium text-xs mb-4 md:mb-0">© 2025 VPN推荐. 保留所有权利.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-medium hover:text-primary transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-medium hover:text-primary transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-medium hover:text-primary transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-3', 'shadow-sm');
+            } else {
+                header.classList.add('py-3', 'shadow-sm');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
+    
