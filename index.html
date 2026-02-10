@@ -1,203 +1,310 @@
 <!DOCTYPE html>
-    <html lang="zh-CN">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>URL重复生成器</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-      <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                primary: '#3B82F6',
-                secondary: '#10B981',
-                accent: '#6366F1',
-                neutral: '#F3F4F6',
-                'neutral-dark': '#4B5563'
-              },
-              fontFamily: {
-                inter: ['Inter', 'sans-serif'],
-              },
-            }
-          }
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影视仓官网 - 影视仓下载_影视仓TV下载_影视仓接口配置地址_TVBOX下载地址</title>
+    <meta name="keywords" content="影视仓下载, 影视仓TV下载, 影视仓接口地址, 影视仓配置地址, TVBOX下载地址, 影视仓官网">
+    <meta name="description" content="影视仓官网提供权威的影视仓下载及影视仓TV下载通道，实时下发最新的影视仓接口地址与影视仓配置地址。同时提供全网稳定的TVBOX下载地址，打造极致家庭影院。">
+    
+    <style>
+        :root {
+            --gold: #c9a063;
+            --bg-dark: #050505;
+            --card-bg: #121212;
+            --wechat-green: #07c160;
+            --text-gray: #a0a0a0;
         }
-      </script>
-      <style type="text/tailwindcss">
-        @layer utilities {
-          .content-auto {
-            content-visibility: auto;
-          }
-          .transition-custom {
-            transition: all 0.3s ease;
-          }
-          .btn-hover {
-            @apply hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
-          }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            margin: 0; padding: 0;
+            overflow-x: hidden;
         }
-      </style>
-    </head>
-    <body class="bg-gray-50 min-h-screen font-inter">
-      <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:shadow-xl transition-all duration-300">
-          <div class="bg-gradient-to-r from-primary to-accent p-6 text-white">
-            <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold flex items-center">
-              <i class="fa fa-link mr-3"></i>
-              URL重复生成器
-            </h1>
-            <p class="mt-2 opacity-90">轻松生成指定数量的重复URL</p>
-          </div>
-          
-          <div class="p-6">
-            <div class="mb-6">
-              <label for="urlInput" class="block text-sm font-medium text-gray-700 mb-1">基础网址</label>
-              <textarea 
-                id="urlInput" 
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                placeholder="例如: https://example.com"
-              ></textarea>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div>
-                <label for="repeatCount" class="block text-sm font-medium text-gray-700 mb-1">重复次数</label>
-                <input 
-                  type="number" 
-                  id="repeatCount" 
-                  value="1500" 
-                  min="1" 
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                >
-              </div>
-              
-              <div class="md:col-span-2 flex flex-col justify-end">
-                <div class="flex flex-wrap gap-3">
-                  <button 
-                    onclick="generateUrls()" 
-                    class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg flex items-center btn-hover"
-                  >
-                    <i class="fa fa-magic mr-2"></i> 生成
-                  </button>
-                  <button 
-                    onclick="copyResult()" 
-                    class="bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-lg flex items-center btn-hover"
-                  >
-                    <i class="fa fa-copy mr-2"></i> 复制结果
-                  </button>
-                  <button 
-                    onclick="clearAll()" 
-                    class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center btn-hover"
-                  >
-                    <i class="fa fa-eraser mr-2"></i> 清空
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div class="result">
-              <label class="block text-sm font-medium text-gray-700 mb-1">生成结果</label>
-              <div class="relative">
-                <textarea 
-                  id="resultOutput" 
-                  readonly 
-                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all min-h-[200px]"
-                ></textarea>
-                <div id="copyStatus" class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs opacity-0 transition-opacity duration-500">
-                  已复制!
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="bg-gray-50 p-4 text-center text-gray-500 text-sm">
-            <p>© 2025 URL重复生成器 | 快速创建多行相同URL</p>
-          </div>
+
+        /* 顶部沉浸式设计 */
+        .cinema-header {
+            background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,1) 95%),
+                        url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=1600') center/cover;
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+
+        h1 { font-size: 3rem; margin: 0; letter-spacing: 6px; color: var(--gold); }
+        .hero-sub { color: var(--text-gray); margin-top: 15px; font-size: 1rem; letter-spacing: 1px; }
+
+        .container { max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; }
+
+        /* SEO 强调提示区 */
+        .main-notice {
+            background: rgba(201, 160, 99, 0.05);
+            border: 1px solid rgba(201, 160, 99, 0.2);
+            padding: 18px;
+            border-radius: 50px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        /* 矩阵网格 */
+        .soft-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .soft-item {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .soft-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            background: #161616;
+        }
+
+        .soft-icon { font-size: 40px; margin-bottom: 20px; display: block; filter: drop-shadow(0 0 10px rgba(201,160,99,0.3)); }
+        .soft-item h3 { font-size: 1.3rem; margin: 10px 0; }
+        .soft-item p { color: var(--text-gray); font-size: 0.85rem; line-height: 1.6; margin-bottom: 25px; min-height: 40px; }
+
+        /* 统一按钮样式 */
+        .btn-action {
+            border: none;
+            padding: 13px 0;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+        /* 下载类按钮样式 */
+        .btn-download { background: linear-gradient(135deg, #c9a063, #ad864b); color: #000; }
+        /* 复制类按钮样式 */
+        .btn-copy { background: transparent; border: 1px solid var(--wechat-green); color: var(--wechat-green); }
+        .btn-copy:hover { background: var(--wechat-green); color: #fff; }
+
+        /* 弹窗样式 */
+        .modal-mask {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.94);
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            justify-content: center; align-items: center;
+        }
+
+        .modal-box {
+            background: #1a1a1a;
+            width: 85%; max-width: 360px;
+            border-radius: 30px;
+            padding: 40px 20px;
+            text-align: center;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .modal-box h2 { color: var(--gold); margin-bottom: 8px; font-size: 1.5rem; }
+        .modal-box p { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+        
+        .qr-wrapper {
+            background: #fff;
+            width: 200px; height: 200px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 8px;
+            border: 4px solid var(--gold);
+        }
+        .qr-wrapper img { width: 100%; height: 100%; }
+
+        .wechat-tag {
+            margin-top: 25px;
+            color: var(--wechat-green);
+            background: rgba(7, 193, 96, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold; font-size: 0.9rem;
+        }
+
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; color: #555; cursor: pointer; }
+
+        /* 底部 SEO 增强文本区 */
+        .seo-footer-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            border-top: 1px solid #111;
+            font-size: 0.8rem;
+            color: #333;
+            line-height: 2;
+        }
+        .seo-footer-content strong { color: #444; }
+
+        footer { text-align: center; padding: 60px 20px; color: #444; font-size: 0.8rem; line-height: 2; border-top: 1px solid #111; }
+    </style>
+</head>
+<body>
+
+    <header class="cinema-header">
+        <h1>影视仓官网</h1>
+        <p class="hero-sub">提供权威<strong>影视仓下载</strong> · 实时更新<strong>影视仓配置地址</strong></p>
+    </header>
+
+    <div class="container">
+        <div class="main-notice">
+            📢 <strong>影视仓TV下载</strong> 提醒：为确保包体安全及接口稳定，所有资源请扫码通过小程序获取。
         </div>
-      </div>
-      
-      <script>
-        function generateUrls() {
-          const baseUrl = document.getElementById('urlInput').value.trim();
-          const repeatCount = parseInt(document.getElementById('repeatCount').value) || 1;
-          
-          if (!baseUrl) {
-            showNotification('请输入基础网址', 'error');
-            return;
-          }
-          
-          let result = '';
-          for (let i = 0; i < repeatCount; i++) {
-            result += baseUrl + '\n';
-          }
-          
-          document.getElementById('resultOutput').value = result.trim();
-          showNotification(`成功生成 ${repeatCount} 个URL`, 'success');
-        }
-        
-        function copyResult() {
-          const resultTextarea = document.getElementById('resultOutput');
-          resultTextarea.select();
-          document.execCommand('copy');
-          
-          // 显示复制成功提示
-          const copyStatus = document.getElementById('copyStatus');
-          copyStatus.textContent = '已复制!';
-          copyStatus.classList.remove('opacity-0');
-          copyStatus.classList.add('opacity-100');
-          
-          setTimeout(() => {
-            copyStatus.classList.remove('opacity-100');
-            copyStatus.classList.add('opacity-0');
-          }, 2000);
-        }
-        
-        function clearAll() {
-          document.getElementById('urlInput').value = '';
-          document.getElementById('resultOutput').value = '';
-          document.getElementById('repeatCount').value = 1500;
-          showNotification('已清空所有输入和输出', 'info');
-        }
-        
-        function showNotification(message, type = 'info') {
-          // 创建通知元素
-          const notification = document.createElement('div');
-          notification.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out z-50 translate-y-10 opacity-0`;
-          
-          // 根据类型设置样式
-          if (type === 'success') {
-            notification.classList.add('bg-green-500', 'text-white');
-          } else if (type === 'error') {
-            notification.classList.add('bg-red-500', 'text-white');
-          } else {
-            notification.classList.add('bg-primary', 'text-white');
-          }
-          
-          notification.innerHTML = `
-            <div class="flex items-center">
-              ${type === 'success' ? '<i class="fa fa-check-circle mr-2"></i>' : 
-                type === 'error' ? '<i class="fa fa-exclamation-circle mr-2"></i>' : 
-                '<i class="fa fa-info-circle mr-2"></i>'}
-              <span>${message}</span>
+
+        <div class="soft-matrix">
+            <div class="soft-item">
+                <span class="soft-icon">📦</span>
+                <h3>影视仓 官方版</h3>
+                <p>提供最纯净的<strong>影视仓下载</strong>服务，适配大屏电视，支持 4K 原画播放。</p>
+                <button class="btn-action btn-download" title="影视仓TV下载" onclick="openModal('下载软件', '影视仓官方版')">立即去小程序下载</button>
             </div>
-          `;
-          
-          document.body.appendChild(notification);
-          
-          // 显示通知
-          setTimeout(() => {
-            notification.classList.remove('translate-y-10', 'opacity-0');
-          }, 10);
-          
-          // 3秒后隐藏通知
-          setTimeout(() => {
-            notification.classList.add('translate-y-10', 'opacity-0');
-            setTimeout(() => {
-              document.body.removeChild(notification);
-            }, 300);
-          }, 3000);
+
+            <div class="soft-item" style="border: 1px solid rgba(7, 193, 96, 0.3);">
+                <span class="soft-icon">🔗</span>
+                <h3>影视仓最新配置地址</h3>
+                <p>实时维护的<strong>影视仓接口地址</strong>，涵盖全网优质资源，一键复制使用。</p>
+                <button class="btn-action btn-copy" title="影视仓配置地址" onclick="openModal('复制接口', '最新配置接口')">立即去小程序复制</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">📽️</span>
+                <h3>TVBOX 开源版</h3>
+                <p>最全的<strong>TVBOX下载地址</strong>集合，经典开源内核，支持自定义协议。</p>
+                <button class="btn-action btn-download" title="TVBOX下载地址" onclick="openModal('下载软件', 'TVBox开源版')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">🍎</span>
+                <h3>小苹果影视</h3>
+                <p>内置资源无需配置。欢迎寻求<strong>影视仓TV下载</strong>的用户同步体验。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '小苹果影视')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item" style="border: 1px solid rgba(7, 193, 96, 0.3);">
+                <span class="soft-icon">📂</span>
+                <h3>备用接口资源包</h3>
+                <p>多条<strong>影视仓配置地址</strong>备选，解决线路波动带来的观影不便。</p>
+                <button class="btn-action btn-copy" onclick="openModal('复制接口', '备用接口包')">立即去小程序复制</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">📡</span>
+                <h3>火星直播高清版</h3>
+                <p>同步央视卫视高清直播，与<strong>影视仓下载</strong>配合使用效果更佳。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '火星直播')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">🌟</span>
+                <h3>超级直播</h3>
+                <p>全国地方台全覆盖，蓝光秒播。更多<strong>影视仓接口地址</strong>持续更新中。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '超级直播')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">🎞️</span>
+                <h3>大师兄影视 TV</h3>
+                <p>全网资源实时同步，支持多线路切换，画质超清。提供<strong>影视仓下载</strong>配套。 </p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '大师兄影视')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">📱</span>
+                <h3>影视仓 手机版</h3>
+                <p>移动端专属优化。若需大屏请寻找<strong>影视仓TV下载</strong>通道。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '影视仓手机版')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">💎</span>
+                <h3>恒星 4K 播放器</h3>
+                <p>专业解码，支持本地挂载。配合<strong>影视仓配置地址</strong>实现全能播放。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '恒星播放器')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">🎮</span>
+                <h3>悟空遥控/投屏</h3>
+                <p>电视管理神器。一键完成<strong>影视仓下载</strong>到电视的远程安装。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '悟空遥控器')">立即去小程序下载</button>
+            </div>
+
+            <div class="soft-item">
+                <span class="soft-icon">🎨</span>
+                <h3>番茄动漫专版</h3>
+                <p>动漫迷必备。同步更新<strong>影视仓接口地址</strong>动漫专线。</p>
+                <button class="btn-action btn-download" onclick="openModal('下载软件', '动漫专版')">立即去小程序下载</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-footer-content">
+        <h2 style="font-size: 1rem; color: #555; margin-bottom: 10px;">资源快速索引：</h2>
+        <p>
+            本站致力于为用户提供便捷的 <strong>影视仓下载</strong> 入口。
+            无论您是寻找最新的 <strong>影视仓TV下载</strong> 还是需要稳定的 <strong>TVBOX下载地址</strong>，
+            我们都能为您提供官方渠道。为了确保观影顺畅，建议您每隔一周通过小程序获取最新的 <strong>影视仓接口地址</strong>。
+            通过本页，您可以快速掌握 <strong>影视仓配置地址</strong> 的最新动向，享受极速观影体验。
+        </p>
+    </div>
+
+    <div id="qrModal" class="modal-mask" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalAction">获取资源</h2>
+            <p id="modalName">影视仓官方资源分发</p>
+            
+            <div class="qr-wrapper">
+                <img src="https://via.placeholder.com/200?text=扫码获取资源" alt="影视仓配置地址获取小程序码">
+            </div>
+
+            <div class="wechat-tag">
+                微信扫一扫 · <span id="actionType">立即获取</span>
+            </div>
+
+            <p style="margin-top:20px; font-size: 0.8rem; color: #555;">
+                提示：进入小程序后，点击“资源库”即可
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            <strong>影视仓官网</strong> - 开启私人影院时代。本站<strong>影视仓下载</strong>资源均来自网络。<br>
+            扫码获取 <strong>影视仓最新配置地址</strong> 和 <strong>影视仓接口地址</strong>。
+        </p>
+        <p style="margin-top:15px; color: #222;">Copyright &copy; 2026 影视仓官网. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openModal(action, name) {
+            document.getElementById('modalAction').innerText = action;
+            document.getElementById('modalName').innerText = "目标：" + name;
+            document.getElementById('actionType').innerText = "立即" + (action.includes('复制') ? '复制' : '下载');
+            document.getElementById('qrModal').style.display = 'flex';
         }
-      </script>
-    </body>
-    </html>
-  
+        function closeModal() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
